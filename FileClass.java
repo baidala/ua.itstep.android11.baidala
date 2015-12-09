@@ -7,6 +7,7 @@ package ua.itstep.android11.baidala;
 
 
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -59,7 +60,7 @@ public class FileClass extends File {
     FileClass(String pathname, String login, String password) {
         super(pathname);
         isEnabled = isPermition(login, password);
-        if(!this.exists()) {
+        if(isEnabled) {
             try {
                 this.createNewFile();
                 System.out.println("File created.");
@@ -232,6 +233,26 @@ public class FileClass extends File {
                 return true;
                 }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static void getImage(String from, String to) {
+        BufferedImage bi;
+        File pictureFile = new  File(to);
+        try {
+            URL url = new URL(from);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            
+            BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            
+            
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(FileClass.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
     
     
