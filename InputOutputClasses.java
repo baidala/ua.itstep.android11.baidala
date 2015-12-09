@@ -20,16 +20,18 @@ public class InputOutputClasses {
      */
     public static void main(String[] args) {
         try {
-        FileClass fc = new FileClass("D:\\workspace\\out.txt", "max", "paswwwwww");
+        FileClass fc = new FileClass("D:\\workspace\\out.jpg", "John", "ppasd");
         
-        String urlFrom = "http://cityfinder.esy.es/getuser.php";
+        //String urlFrom = "http://cityfinder.esy.es/getuser.php";
         //String urlFrom = "http://cityfinder.esy.es/getwithget.php?name=Max";
+        String urlFrom = "http://cityfinder.esy.es/img/2.jpg";
         
-        fc.readFile(urlFrom, Definitions.READ_HTTP_CASE);
+        //fc.readFile(urlFrom, Definitions.READ_HTTP_CASE);
+        FileClass.getImage(urlFrom, "D:\\workspace\\out.jpg");
+        
         } catch (NullPointerException ex) {
             System.out.println("ERROR: Invalid user/password.");
         }
-       //fc.readFile("D:\\workspace\\out.txt", Definitions.READ_FILE_CASE);
         
 
     }
